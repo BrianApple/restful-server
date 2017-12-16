@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:cache="http://www.springframework.org/schema/cache"
+   xmlns:p="http://www.springframework.org/schema/p"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  http://www.springframework.org/schema/beans/spring-beans.xsd 
+    http://www.springframework.org/schema/cache 
+    http://www.springframework.org/schema/cache/spring-cache.xsd"> 
+   <!-- 启用spring缓存管理器    缺省使用了一个名字叫 cacheManager 的缓存管理器 -->
+  <cache:annotation-driven />
+ 
+<!--   <bean id="accountServiceBean" class="cacheOfAnno.AccountService"/>  -->
+ 
+   <!-- 配置缓存管理器 ： 缓存管理器管理缓存集合-->
+  <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+    <property name="caches"> 
+      <set> 
+      <!-- 一个名称为default的默认缓存 -->
+        <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="default" /> 
+      <!-- 一个名称为userCache的缓存 -->  
+        <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="userCache" /> 
+      </set> 
+    </property> 
+  </bean> 
+</beans>
