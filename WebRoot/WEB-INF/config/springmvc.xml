@@ -18,7 +18,7 @@
       http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
         
       ">
-       <context:component-scan base-package="com.tl.cdz.**">
+       <context:component-scan base-package="com.tl.rest.**">
        	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"></context:exclude-filter>
        </context:component-scan>
       <mvc:annotation-driven/>
@@ -31,7 +31,7 @@
 	<mvc:interceptors>
       	<mvc:interceptor>
       		<mvc:mapping path="/**"/>
-      		<bean class="com.tl.cdz.server.filters.PreFilter" ></bean>
+      		<bean class="com.tl.rest.server.filters.PreFilter" ></bean>
       	</mvc:interceptor>
       </mvc:interceptors>
       

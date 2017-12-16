@@ -28,7 +28,7 @@
       <!-- 注解扫描   只负责扫描service层 
       		service层还包括事务管理 但是  可以另外配置一个配置文件专门管理事务
       -->
-     <context:component-scan base-package="com.tl.cdz.**">
+     <context:component-scan base-package="com.tl.rest.**">
      	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"></context:exclude-filter>
      </context:component-scan>
 </beans>
